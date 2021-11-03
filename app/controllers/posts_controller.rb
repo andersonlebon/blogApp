@@ -1,8 +1,9 @@
-class PostsController < ApplicationController
-  def index
-  end
+# frozen_string_literal: true
+
+class PostsController < ApplicationController # rubocop:todo Style/Documentation
+  def index; end
+
   def show
-    
-   puts params
+    puts params
   end
 end
