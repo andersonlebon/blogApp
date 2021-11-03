@@ -3,5 +3,6 @@ class PostsController < ApplicationController
   end
   def show
     
+   puts params
   end
 end
