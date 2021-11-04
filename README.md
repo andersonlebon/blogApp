@@ -61,10 +61,17 @@ bundle install
 rails s
 ```
 
+#### If you get an error run
+
+```sh
+bin/rails webpacker:install
+and now run  `rails s`
+```
+
 ### Test
 
 ```sh
-rspec
+rspec or rake
 ```
 
 ## Authors
