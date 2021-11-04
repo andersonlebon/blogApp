@@ -29,7 +29,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'should include correct  text' do
-      expect(response.body).to include('Show the details of one post per user')
+      expect(response.body).to include('Here is a list of posts for a given user')
     end
   end
 end
