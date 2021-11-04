@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET #index' do
-    before(:example) { get users_path(10) }
+    before(:example) { get user_posts_path(10) }
 
     it 'should return correct response status' do
       expect(response).to have_http_status(200)
@@ -13,7 +13,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'should include correct text' do
-      expect(response.body).to include('Show All users')
+      expect(response.body).to include('Load all post of the user')
     end
   end
 
