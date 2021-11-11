@@ -1,4 +1,4 @@
-<section class="show_user_posts">
+<section class="show_user_posts d-flex flex-column">
     <div class="user-lists ">
         <%= render "user_header", :user =>@user %>
     </div>
@@ -13,6 +13,7 @@
                     <p> 
                         lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
                     </p>
+                    <div class="comment-num-2">Comments: 10, Likes: 10k</div>
                  </div>
                    
             <% end %>
@@ -30,7 +31,7 @@
        </div>
 
     <% end %>
-            <%= link_to 'Pagination', nil, class: "btn btn-dark" %>
     </div>
+            <%= link_to 'Pagination', nil, class: "btn  mx-auto m-3 justify-self-center btn-dark" %>
 </section>
 

@@ -1,9 +1,9 @@
 
-<section class="show_user">
+<section class="show_user d-flex flex-column">
     <div class="user-lists ">
         <%= render "user_header", :user =>@user %>
     </div>
-    <p>
+    <p class="ml-2">
         lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
         lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
         lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
@@ -27,6 +27,6 @@
        </div>
 
     <% end %>
-            <%= link_to 'See all posts', user_posts_path(@user.id), class: "btn btn-dark" %>
     </div>
+            <%= link_to 'See all posts', user_posts_path(@user.id), class: "mx-auto m-3 justify-self-center btn btn-dark" %>
 </section>

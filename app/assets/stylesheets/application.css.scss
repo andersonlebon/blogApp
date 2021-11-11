@@ -18,13 +18,12 @@ a {
   //   display: flex;
   //   flex-direction: column;
   //   align-items: center;
-  padding: 5rem 20rem;
+  padding: 5rem 25rem;
 }
 
 .posts {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .comment {
@@ -60,5 +59,18 @@ a {
   position: absolute;
   top: 0;
   right: 0;
+  margin: 20px;
+}
+
+.post-p {
+  position: relative;
+}
+
+.comment-num-2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 12px;
+  color: #5a5959cb;
   margin: 20px;
 }
