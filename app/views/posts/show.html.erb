@@ -1,37 +1,28 @@
-<h1>Here is a list of posts for a given user</h2>
 <section class="show_user_posts">
-    <div class="user-lists ">
-        <%= render "user_header", :user =>@user %>
+    <div class= "post-details post-border mt-2">
+            <h2>Post #<%= @user.id%> by: <%= @user.name%></h2>
+        <p>
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet,\adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            dolor sit amet, consectetur adipisicing elit.
+            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+
+        </p>
     </div>
-
-    <div class=posts>
-    <% (1..5).each do |i|%>
-         <div class="post">
-             <%= link_to user_post_path(@user.id, i),  class: "post-p" do %>
-            
-                <div class="post-border post-p">
-                    <h3>Post#<%= i %> </h3>
-                    <p> 
-                        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-                    </p>
-                 </div>
-                   
-            <% end %>
-            <div class="post-border mt-2">
-            <%(1..5).each do |i|%>
-                <div class="comment">
-                    <h5>Anderson lebon<%= i %>: 
-                        <span> 
-                            comment<%= i %>
-                        </span>
-                    </h5>
-                </div>
-            <% end %>
+    <div class="post-border mt-2">
+        <%(1..5).each do |i|%>
+            <div class="comment">
+                <h5>Anderson lebon<%= i %>: 
+                    <span> comment<%= i %></span>
+                </h5>
             </div>
-       </div>
-
-    <% end %>
-            <%= link_to 'See all posts', user_posts_path(@user.id), class: "btn btn-dark" %>
+        <% end %>
     </div>
 </section>
 
