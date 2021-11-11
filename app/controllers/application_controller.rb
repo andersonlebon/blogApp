@@ -1,4 +1,3 @@
 class ApplicationController < ActionController::Base
-
-    User.first
+  User.first
 end
