@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :likes
   validates :title, :text, presence: true
 
- def update_post_counter
+  def update_post_counter
     user.update_column('posts_counter', user.posts_counter + 1)
   end
 
