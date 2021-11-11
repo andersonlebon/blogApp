@@ -26,3 +26,26 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
+.comment {
+  h5 {
+    font-size: 13px;
+
+    span {
+      font-weight: normal;
+    }
+  }
+}
+
+.show_user_posts {
+  padding: 5rem 20rem;
+
+  .post {
+    margin-bottom: 50px;
+  }
+}
+
+.post-border {
+  border: solid 1px #5a5959cb;
+  padding: 10px;
+}
