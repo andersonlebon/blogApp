@@ -8,7 +8,7 @@ import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
-//= require bootstrap-sprockets
+import '@fortawesome/fontawesome-free/css/all';
 
 Rails.start();
 Turbolinks.start();

@@ -1,1 +1,32 @@
-<h1>Show the current user</h1>
+
+<section class="show_user">
+    <div class="user-lists ">
+        <%= render "user_header", :user =>@user %>
+    </div>
+    <p>
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet,\adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+         dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+
+    </p>
+
+    <div class=posts>
+    <% (1..5).each do |i|%>
+       <div class="post">
+            <h3>Post#<%= i %> </h3>
+            <p> 
+                 lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            </p>
+       </div>
+
+    <% end %>
+            <button classs="btn btn-dark">See all posts</button>
+    </div>
+</section>

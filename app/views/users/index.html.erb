@@ -1,12 +1,9 @@
-<section>
-<ul>
-    <% (1..5).each do |item| %>
-     <li>
-        <div class="profil"><div>
-        <div class="user">
-            <h2>User name</h2> 
-            <p>Number of poste: 20</p>
-        </div>
+<section class=" w-100 d-flex flex-column align-items-center">
+
+<ul class="w-75">
+    <% @users.each do |user| %>
+     <li class="w-100 list-users">
+        <%= render "user_header", :user =>user %>
     </li>
     <% end %>
 
