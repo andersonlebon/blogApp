@@ -1,0 +1,10 @@
+ <%= link_to  user_path(user), class: "d-flex my-4 align-items-center" do %>
+         
+        <div class="profil m-4">
+           <i class="fas fa-user-circle fa-3x"></i>
+        </div>
+        <div class="user border d-flex align-items-center justify-content-between px-4 bordered">
+            <h2><%= user.name%></h2> 
+            <div class="p-0 m-0 align-self-end">Number of poste: <%= user.posts.length%></div>
+        </div>
+  <% end %>

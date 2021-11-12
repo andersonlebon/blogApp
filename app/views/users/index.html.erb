@@ -1,1 +1,12 @@
-<h1>Show All users</h1>
+<section class=" w-100 d-flex flex-column align-items-center">
+
+<ul class="w-75">
+    <% @users.each do |user| %>
+     <li class="w-100 list-users">
+        <%= render "user_header", :user =>user %>
+    </li>
+    <% end %>
+
+</ul>
+
+</section>

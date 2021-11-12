@@ -1,1 +1,32 @@
-<h1>Show the current user</h1>
+
+<section class="show_user d-flex flex-column">
+    <div class="user-lists ">
+        <%= render "user_header", :user =>@user %>
+    </div>
+    <p class="ml-2">
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet,\adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+         dolor sit amet, consectetur adipisicing elit.
+        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+
+    </p>
+
+    <div class=posts>
+    <% @posts.each do |i|%>
+       <div class="post">
+            <h3>Post#<%= i.id %> </h3>
+            <p> 
+                 lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+            </p>
+       </div>
+
+    <% end %>
+    </div>
+            <%= link_to 'See all posts', user_posts_path(@user.id), class: "mx-auto m-3 justify-self-center btn btn-dark" %>
+</section>
