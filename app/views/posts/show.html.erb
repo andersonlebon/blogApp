@@ -17,10 +17,10 @@
         </p>
     </div>
     <div class="post-border mt-2">
-        <%(1..5).each do |i|%>
-            <div class="comment">
-                <h5>Anderson lebon<%= i %>: 
-                    <span> comment<%= i %></span>
+        <%@comments.each do |i|%>
+            <div class="comment">                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                <h5>Anderson lebon<%= i.text %>: 
+                    <span> comment<%= i.text %></span>
                 </h5>
             </div>
         <% end %>

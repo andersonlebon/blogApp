@@ -22,6 +22,8 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
+    @comments = @post.comments  # find all comments for this post
+
   end
 
   def post_params
