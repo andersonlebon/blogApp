@@ -32,6 +32,9 @@
 
     <% end %>
     </div>
-            <%= link_to 'Pagination', nil, class: "btn  mx-auto m-3 justify-self-center btn-dark" %>
+    <div class="button d-flex my-3">
+        <%= link_to 'Create new post', new_user_post_path(@user.id), class: "btn btn-dark" %>
+        <%= link_to 'See all posts', user_posts_path(@user.id), class: "mx-auto justify-self-center btn btn-dark" %>
+    </div>
 </section>
 
