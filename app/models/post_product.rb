@@ -1,0 +1,2 @@
+class PostProduct < ApplicationRecord
+end
