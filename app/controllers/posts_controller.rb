@@ -11,8 +11,20 @@ class PostsController < ApplicationController
   # create a new post
   def create
     @user = User.find(params[:user_id]) # find the user
+    # validate post params
     @post = @user.posts.create(post_params) # create a new post for the user
-    redirect_to user_posts_path(@user) # redirect to the user's posts
+    # count user's posts
+    @post.comments_counter = @post.comments.count
+    @post.like_counter = @post.likes.count
+    # @user.posts.count
+      if @post.save
+      flash[:notice] = 'Post created!'
+      redirect_to user_posts_path(@user.id)
+    else
+      flash.now[:alert] = 'Failed to create post!'
+      render :new
+    end
+    # redirect_to user_posts_path(@user) # redirect to the user's posts
   end
 
   # new post
