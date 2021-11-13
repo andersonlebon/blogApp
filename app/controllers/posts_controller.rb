@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.comments_counter = @post.comments.count
     @post.like_counter = @post.likes.count
     # @user.posts.count
-      if @post.save
+    if @post.save
       flash[:notice] = 'Post created!'
       redirect_to user_posts_path(@user.id)
     else

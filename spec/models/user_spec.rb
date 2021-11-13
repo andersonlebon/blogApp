@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
   before(:each) do
     @user = User.new(name: 'Test User', bio: 'Test Bio', photo: 'Test Photo')
   end
- 
+
   # test if user is not valid without a name
   it 'is not valid without a name' do
     @user.name = nil
@@ -39,5 +39,3 @@ RSpec.describe User, type: :model do
 end
 # EOF
 #
-
-
