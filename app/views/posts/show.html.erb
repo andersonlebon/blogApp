@@ -21,16 +21,18 @@
         </p>
     </div>
     <div class="post-border mt-2">
-        <%@comments.each do |i|%>
-            <div class="comment">                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-                <h5>Anderson lebon<%= i.text %>: 
-                    <span> comment<%= i.text %></span>
-                </h5>
-            </div>
+        <%@comments.each do |comment|%>
+            <div class="comment">
+                        <h5>Anderson lebon<%= comment.id %>: 
+                            <span> 
+                                <%= comment.text %>
+                            </span>
+                        </h5>
+                    </div>
         <% end %>
     </div>
     
  
-        <%= link_to 'Add a comment', new_user_post_comment_path(@user.id, @post.id), class: "mx-auto justify-self-center btn btn-dark" %>
+        <%= link_to 'Add a comment', new_user_post_comment_path(@user.id, @post.id), class: "mx-auto my-3 justify-self-center btn btn-primary" %>
 </section>
 

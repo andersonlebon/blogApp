@@ -20,9 +20,9 @@
             <div class="post-border mt-2">
                 <% @post_comments.find{|e| e[:id] == i[:id]}[:comments].each do |comment|%>
                     <div class="comment">
-                        <h5>Anderson lebon<%= comment.id %>: 
+                        <h5>Anderson lebon<%= comment.id %>:  
                             <span> 
-                                comment<%= comment.text %>
+                                <%= comment.text %>
                             </span>
                         </h5>
                     </div>
