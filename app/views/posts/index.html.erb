@@ -13,7 +13,14 @@
                     <p> 
                         lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
                     </p>
-                    <div class="comment-num-2">Comments: 10, Likes: 10k</div>
+                    <div class="comment-num"><span class="m-2"> Comments: <%= i.comments.count%>,</span> 
+                        <%= link_to user_post_likes_path(@user.id, i), method: :post, class: "mx-auto justify-self-center" do %>
+                        
+                            <i class="fas fa-thumbs-up fa-2x"></i> 
+                            <%= i.likes.count%>
+                        <% end %>
+             
+                    </div>
                  </div>
                    
             <% end %>

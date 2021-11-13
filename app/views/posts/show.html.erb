@@ -1,9 +1,12 @@
 <section class="show_user_posts">
     <div class= "post-details post-border mt-2">
             <h2>Post #<%= @post.id%> by: <%= @post.title%></h2>
-            <div class="comment-num">Comments: <%= @post.comments.count%>, 
-             <%= link_to "like", user_post_likes_path(@user.id, @post.id), method: :post, class: "mx-auto justify-self-center"%>: 
-             <%= @post.likes.count%>
+            <div class="comment-num"><span class="m-2"> Comments: <%= @post.comments.count%>,</span> 
+             <%= link_to user_post_likes_path(@user.id, @post.id), method: :post, class: "mx-auto justify-self-center" do %>
+                <span class=""> <i class="fas fa-thumbs-up fa-2x"></i> </span>
+                
+               <span> <%= @post.likes.count%></span>
+             <% end %>
              
              </div>
         <p>
