@@ -12,11 +12,23 @@ class LikesController < ApplicationController
     # redirect_to :back
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:post_id])
-    @like = @post.likes.create(user_id: params[:user_id], post_id: params[:post_id])
-    # puts like_params
-    # redirect to user post page
-
-    redirect_to user_post_path(@user, @post)
+    @liked = @post.liked
+    @is_liked = @liked ? true : false
+    @post.liked = !@is_liked
+    # @post.likes += @is_liked ? -1 : 1
+    @post.save
+    if @is_liked
+        @like = @post.likes.create(user_id: params[:user_id], post_id: params[:post_id])
+        redirect_to user_post_path(@user, @post)
+    else
+        @like = @post.likes.find_by(user_id: params[:user_id], post_id: params[:post_id])
+        if @like
+            @like.destroy
+        else
+            @like = @post.likes.create(user_id: params[:user_id], post_id: params[:post_id])
+        end
+        redirect_to user_post_path(@user, @post)
+    end
   end
 
   # delete a like for a post
