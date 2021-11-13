@@ -25,5 +25,13 @@
             </div>
         <% end %>
     </div>
+    <%
+=begin%>
+ <%= link_to 'Click Me', nil , on_click"console.log('foo')" %> 
+<%
+=end%>
+
+
+        <%= link_to 'See all posts', new_user_post_comment_path(@user.id, @post.id), class: "mx-auto justify-self-center btn btn-dark" %>
 </section>
 
