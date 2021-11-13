@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @post = @user.posts
+    @posts = @user.posts 
+
+    @post_comments = @posts.map do |post|
+     {:id => post.id, :comments => post.comments.all}
+    end
+
   end
+
 
   # create a new post
   def create
