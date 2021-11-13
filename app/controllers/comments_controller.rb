@@ -1,29 +1,24 @@
 # create comments controller class  
 class CommentsController < ApplicationController
-  # create index method
-  def index
-     @user = User.find(params[:user_id])
-    @comments = @user.posts.find(params[:id]).comments
-  end
-  # create new method
-  # def new
-  #   # create new comment
-  #   @comment = Comment.new
-  # end
+  # create comment for a post
+# new comment
 
-  # # create create method
-  # def create
-  #   # create new comment
-  #   @comment = Comment.new(comment_params)
-  #   # if comment is saved
-  #   if @comment.save
-  #     # redirect to comments index
-  #     redirect_to comments_path
-  #   else
-  #     # render new
-  #     render :new
-  #   end
-  # end
+  def new
+    @user = User.find(params[:user_id])
+    @comment = @user.posts.find(params[:id]).comments.new
+  end
+
+  def create
+    @user = User.find(params[:user_id])
+    @comment = @user.posts.find(params[:id]).comments.create(comment_params)
+    redirect_to post_path(@comment.post)
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
+ 
 
 
 end
