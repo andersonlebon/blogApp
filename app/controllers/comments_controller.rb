@@ -5,12 +5,12 @@ class CommentsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    @comment = @user.posts.find(params[:id]).comments.new
+    @comment = @user.posts.find(params[:post_id]).comments.new
   end
 
   def create
     @user = User.find(params[:user_id])
-    @comment = @user.posts.find(params[:id]).comments.create(comment_params)
+    @comment = @user.posts.find(params[:post_id]).comments.create(comment_params)
     redirect_to post_path(@comment.post)
   end
 
