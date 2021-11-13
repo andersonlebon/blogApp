@@ -2,8 +2,7 @@
   <%= form_with(model: comment, url: { action: "create" }) do |form| %>
     <% if comment.errors.any? %>
       <div id="error_explanation" class="text-danger">
-        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
+        <h5><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h5>
         <ul class="fst-italic">
           <% comment.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -11,6 +10,14 @@
         </ul>
       </div>
     <% end %>
+
+    <% [:info, :error].each do |key| %>
+      <% if flash[key] %>
+      <div class="<%= key %>" id="flash">
+        <%= flash[key] %>
+      </div>
+      <% end %>
+  <% end %>
     <div class="field">
       <%= form.label :text %>
       <%= form.text_area :text, class: "form-control" %>
