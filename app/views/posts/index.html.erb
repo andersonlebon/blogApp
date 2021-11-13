@@ -4,7 +4,7 @@
     </div>
 
     <div class=posts>
-    <% @post.each do |i|%>
+    <% @posts.each do |i|%>
          <div class="post">
              <%= link_to user_post_path(@user.id, i),  class: "post-p" do %>
             
@@ -13,25 +13,33 @@
                     <p> 
                         lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
                     </p>
-                    <div class="comment-num-2">Comments: 10, Likes: 10k</div>
+                    <div class="comment-num"><span class="m-2"> Comments: <%= i.comments.count%>,</span> 
+                        <span class=""> <i class="<%= i.liked || i.likes.count == 0 ? "far fa-heart fa-2x" : "fas fa-heart fa-2x"%>"></i> </span>
+                    
+                        <span> <%= i.likes.count-1 <= 0 ? 0 :  i.likes.count-1%></span>
+                        
+                    </div>
                  </div>
                    
             <% end %>
             <div class="post-border mt-2">
-            <%(1..5).each do |i|%>
-                <div class="comment">
-                    <h5>Anderson lebon<%= i %>: 
-                        <span> 
-                            comment<%= i %>
-                        </span>
-                    </h5>
-                </div>
-            <% end %>
+                <% @post_comments.find{|e| e[:id] == i[:id]}[:comments].each do |comment|%>
+                    <div class="comment">
+                        <h5>Anderson lebon<%= comment.id %>:  
+                            <span> 
+                                <%= comment.text %>
+                            </span>
+                        </h5>
+                    </div>
+                <% end %> 
             </div>
        </div>
 
     <% end %>
     </div>
-            <%= link_to 'Pagination', nil, class: "btn  mx-auto m-3 justify-self-center btn-dark" %>
+    <div class="button d-flex my-3">
+        <%= link_to 'Create new post', new_user_post_path(@user.id), class: "btn btn-dark" %>
+        <%= link_to 'See all posts', user_posts_path(@user.id), class: "mx-auto justify-self-center btn btn-dark" %>
+    </div>
 </section>
 

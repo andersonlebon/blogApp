@@ -1,7 +1,14 @@
 <section class="show_user_posts">
     <div class= "post-details post-border mt-2">
             <h2>Post #<%= @post.id%> by: <%= @post.title%></h2>
-            <div class="comment-num">Comments: 10, Likes: 10k</div>
+            <div class="comment-num"><span class="m-2"> Comments: <%= @post.comments.count%>,</span> 
+             <%= link_to user_post_likes_path(@user.id, @post.id), method: :post, class: "mx-auto justify-self-center" do %>
+                <span class=""> <i class="<%= @post.liked || @post.likes.count == 0 ? "far fa-heart fa-2x" : "fas fa-heart fa-2x"%>"></i> </span>
+                
+               <span><%= @post.likes.count-1 <= 0 ? 0 :  @post.likes.count-1%></span>
+             <% end %>
+             
+             </div>
         <p>
             lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
             lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
@@ -17,13 +24,18 @@
         </p>
     </div>
     <div class="post-border mt-2">
-        <%(1..5).each do |i|%>
+        <%@comments.each do |comment|%>
             <div class="comment">
-                <h5>Anderson lebon<%= i %>: 
-                    <span> comment<%= i %></span>
-                </h5>
-            </div>
+                        <h5>Anderson lebon<%= comment.id %>: 
+                            <span> 
+                                <%= comment.text %>
+                            </span>
+                        </h5>
+                    </div>
         <% end %>
     </div>
+    
+ 
+        <%= link_to 'Add a comment', new_user_post_comment_path(@user.id, @post.id), class: "mx-auto my-3 justify-self-center btn btn-primary" %>
 </section>
 
