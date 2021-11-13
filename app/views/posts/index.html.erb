@@ -17,16 +17,7 @@
                         <span class=""> <i class="<%= i.liked || i.likes.count == 0 ? "far fa-heart fa-2x" : "fas fa-heart fa-2x"%>"></i> </span>
                     
                         <span> <%= i.likes.count-1 <= 0 ? 0 :  i.likes.count-1%></span>
-                        <%
-=begin%>
- <%= link_to user_post_likes_path(@user.id, i), method: :post, class: "mx-auto justify-self-center" do %>
                         
-                            <i class="<%= i.liked == true or i.likes.count <= 1 ? "far fa-heart fa-2x" : "fas fa-heart fa-2x"%>"></i> 
-                            <%= i.likes.count%>
-                        <% end %> 
-<%
-=end%>
-             
                     </div>
                  </div>
                    
