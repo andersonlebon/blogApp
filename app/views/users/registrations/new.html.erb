@@ -23,8 +23,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-primary m-2"%>
+  <div class="actions m-2 d-flex justify-content-between w-100 align-items-center">
+    <%= f.submit "Sign in", class: "btn btn-warning" %>
+    <div class="bar-c"> <p class="log-bar"></p>or<p class="log-bar"></p></div>
+    <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-primary"  %>
   </div>
 <% end %>
 <%= render "users/shared/links" %>
