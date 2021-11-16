@@ -2,7 +2,13 @@
     <div class="user-lists ">
         <%= render "user_header", :user =>@user %>
     </div>
+        <div class="alert alert-success">
 
+    <% if flash[:notice]  %>
+        <%= flash[:notice] %>
+    <% end %>
+        </div>   
+      
     <div class=posts>
     <% @posts.each do |i|%>
          <div class="post">

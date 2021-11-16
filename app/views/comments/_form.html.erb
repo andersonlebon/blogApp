@@ -1,16 +1,23 @@
 <section class="w-50 mx-auto my-5">
   <%= form_with(model: comment, url: { action: "create" }) do |form| %>
     <% if comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-        <ul>
+      <div id="error_explanation" class="text-danger">
+        <h5><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h5>
+        <ul class="fst-italic">
           <% comment.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
+
+    <% [:info, :error].each do |key| %>
+      <% if flash[key] %>
+      <div class="<%= key %>" id="flash">
+        <%= flash[key] %>
+      </div>
+      <% end %>
+  <% end %>
     <div class="field">
       <%= form.label :text %>
       <%= form.text_area :text, class: "form-control" %>
