@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user =current_user
     @posts = @user.posts
 
     @post_comments = @posts.map do |post|
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   # create a new post
   def create
-    @user = User.find(params[:user_id]) # find the user
+    @user = current_user
     # validate post params
     @post = @user.posts.create(post_params) # create a new post for the user
     # count user's posts
@@ -30,12 +30,12 @@ class PostsController < ApplicationController
   # new post
 
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @user.posts.new
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @user.posts.find(params[:id])
     @comments = @post.comments # find all comments for this post
   end

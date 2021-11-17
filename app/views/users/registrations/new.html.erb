@@ -11,6 +11,11 @@
   </div>
 
   <div class="form-floatin mx-2">
+    <%= f.label :name, class: "py-2" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+  </div>
+
+  <div class="form-floatin mx-2">
     <%= f.label :password, class: "py-2"%>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

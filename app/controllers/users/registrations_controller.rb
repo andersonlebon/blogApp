@@ -10,9 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    
+    if resource.save
+      UserMailer.welcome_email(resource).deliver_now
+      User.create(email: resource.email, password: resource.password, password_confirmation: 'password', name: resource.name)
+    end
+
+
+    
+  end
 
   # GET /resource/edit
   # def edit
