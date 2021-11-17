@@ -64,4 +64,6 @@ gem 'bootstrap-sass'
 
 gem 'font-awesome-sass'
 
+gem 'devise'
+
 gem 'rails-controller-testing'

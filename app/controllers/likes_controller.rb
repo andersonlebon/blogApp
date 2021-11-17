@@ -10,7 +10,7 @@ class LikesController < ApplicationController
     # @post.save
 
     # redirect_to :back
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @user.posts.find(params[:post_id])
     @liked = @post.liked
     @is_liked = @liked ? true : false
