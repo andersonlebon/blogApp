@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -12,14 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    
-    if resource.save
+
+    if resource.save # rubocop:todo Style/GuardClause
       UserMailer.welcome_email(resource).deliver_now
-      User.create(email: resource.email, password: resource.password, password_confirmation: 'password', name: resource.name)
+      User.create(email: resource.email, password: resource.password, password_confirmation: 'password',
+                  name: resource.name)
     end
-
-
-    
   end
 
   # GET /resource/edit
