@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
 
-  #   if resource.save # rubocop:todo Style/GuardClause
+  #   if resource.save
   #     UserMailer.welcome_email(resource).deliver_now
   #     User.create(email: resource.email, password: resource.password, password_confirmation: 'password',
   #                 name: resource.name)
