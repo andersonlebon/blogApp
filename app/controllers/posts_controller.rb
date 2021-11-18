@@ -43,6 +43,8 @@ class PostsController < ApplicationController
     @post = @user.posts.new
   end
 
+  # upadate a post
+
   def show
     @user = current_user
     @post = @user.posts.find(params[:id])

@@ -4,8 +4,10 @@
            <div class="d-flex align-items-center">
 
                 <h2>Post #<%= @post.id%> by: <%= @post.title%></h2>  
-                <%= link_to user_post_path(@user.id, @post.id), method: :delete, class: "" do %>
-                    <span class="m-3 badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</span>
+                <% if can? :distroy, @post %>
+                    <%= link_to user_post_path(@user.id, @post.id), method: :delete, class: "" do %>
+                        <span class="m-3 badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</span>
+                    <% end %>
                 <% end %>
            </div>
 
@@ -30,10 +32,11 @@
                          <%= comment.text %>
                     </span>
                 </div>
-
-                <%= link_to user_post_comment_path(@user.id, @post.id, comment.id), method: :delete, class: "" do %>
-                    <div class=" badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</div>
-                <% end %>              
+                <% if can? :distroy, comment %>
+                    <%= link_to user_post_comment_path(@user.id, @post.id, comment.id), method: :delete, class: "" do %>
+                        <div class=" badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</div>
+                    <% end %> 
+                <% end %>             
             </div>
         <% end %>
     </div>

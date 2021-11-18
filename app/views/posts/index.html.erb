@@ -26,7 +26,9 @@
                 <div class="post-border post-p">
                     <div class="d-flex align-items-center">
                         <h3>Post #<%= i.title %> </h3>
+                        <% if can? :distroy, @post %>
                         <span class="m-3 badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</span>
+                        <% end %>
                     </div>
                     <p> 
                      <%= i.text%>
