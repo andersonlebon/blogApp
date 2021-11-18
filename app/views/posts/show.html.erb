@@ -1,6 +1,14 @@
-<section class="show_user_posts">
+<section class="show_user_posts d-flex flex-column">
+    <h2 class="mx-auto text-secondary mb-3">All Posts</h2>
     <div class= "post-details post-border mt-2">
-            <h2>Post #<%= @post.id%> by: <%= @post.title%></h2>
+           <div class="d-flex align-items-center">
+
+                <h2>Post #<%= @post.id%> by: <%= @post.title%></h2>  
+                <%= link_to user_post_path(@user.id, @post.id), method: :delete, class: "" do %>
+                    <span class="m-3 badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</span>
+                <% end %>
+           </div>
+
             
             <div class="comment-num"><span class="m-2"> Comments: <%= @post.comments.count%>,</span> 
              <%= link_to user_post_likes_path(@user.id, @post.id), method: :post, class: "mx-auto justify-self-center" do %>
@@ -10,32 +18,23 @@
              <% end %>
              
              </div>
-        <p>
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet,\adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-            dolor sit amet, consectetur adipisicing elit.
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
-
+        <p class="m-2">
+            <%= @post.text%>
         </p>
     </div>
     <div class="post-border mt-2">
         <%@comments.each do |comment|%>
-    <%= link_to user_post_comment_path(@user.id, @post.id, comment.id), method: :delete, class: "mx-auto justify-self-center" do %>
-        <span class=""> <i class="fas fa-trash-alt fa-2x"></i> </span> Delete
-    <% end %>
-            <div class="comment">
-                        <h5>Anderson lebon<%= comment.id %>: 
-                            <span> 
-                                <%= comment.text %>
-                            </span>
-                        </h5>
-                    </div>
+            <div class="comment d-flex my-2 justify-content-between w-100">
+                 <div>Anderson lebon<%= comment.id %> : 
+                        <span> 
+                         <%= comment.text %>
+                    </span>
+                </div>
+
+                <%= link_to user_post_comment_path(@user.id, @post.id, comment.id), method: :delete, class: "" do %>
+                    <div class=" badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</div>
+                <% end %>              
+            </div>
         <% end %>
     </div>
     
