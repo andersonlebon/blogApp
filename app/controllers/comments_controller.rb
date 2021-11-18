@@ -37,8 +37,6 @@ class CommentsController < ApplicationController
     flash[:notice] = 'Comment deleted'
 
     redirect_to user_post_path(@user, @comment.post)
-    
-
   end
 
   # private
