@@ -26,6 +26,9 @@
     </div>
     <div class="post-border mt-2">
         <%@comments.each do |comment|%>
+    <%= link_to user_post_comment_path(@user.id, @post.id, comment.id), method: :delete, class: "mx-auto justify-self-center" do %>
+        <span class=""> <i class="fas fa-trash-alt fa-2x"></i> </span> Delete
+    <% end %>
             <div class="comment">
                         <h5>Anderson lebon<%= comment.id %>: 
                             <span> 
