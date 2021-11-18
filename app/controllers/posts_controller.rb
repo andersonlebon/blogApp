@@ -27,6 +27,14 @@ class PostsController < ApplicationController
     # redirect_to user_posts_path(@user) # redirect to the user's posts
   end
 
+  # destroy a post of the current user
+  def destroy
+    @user = current_user
+    @post = @user.posts.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path(@user)
+  end
+
   # new post
 
   def new
