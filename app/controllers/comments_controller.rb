@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # create comments controller class
 class CommentsController < ApplicationController
   # create comment for a post

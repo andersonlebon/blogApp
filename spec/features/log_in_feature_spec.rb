@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.feature 'Logins', type: :feature do
@@ -31,6 +33,6 @@ RSpec.feature 'Logins', type: :feature do
       end
       click_button 'Sign in'
       expect(page).to have_content 'Invalid Email or password'
-    end   
+    end
   end
 end

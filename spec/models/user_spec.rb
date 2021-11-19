@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 # write test for all User modul methods
 RSpec.describe User, type: :model do
