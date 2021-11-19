@@ -27,12 +27,23 @@ class PostsController < ApplicationController
     # redirect_to user_posts_path(@user) # redirect to the user's posts
   end
 
+  # destroy a post of the current user
+  def destroy
+    @user = current_user
+    @post = @user.posts.find(params[:id])
+    @post.comments.destroy_all
+    @post.destroy
+    flash[:notice] = 'Post deleted'
+    redirect_to user_posts_path(@user)
+  end
   # new post
 
   def new
     @user = current_user
     @post = @user.posts.new
   end
+
+  # upadate a post
 
   def show
     @user = current_user

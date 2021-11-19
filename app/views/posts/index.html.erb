@@ -1,4 +1,5 @@
 <section class="show_user_posts d-flex flex-column">
+        <h2 class="mx-auto text-secondary">Posts</h2>
     <div class="user-lists ">
         <%= render "user_header", :user =>@user %>
     </div>
@@ -12,12 +13,25 @@
     <div class=posts>
     <% @posts.each do |i|%>
          <div class="post">
+             <%
+=begin%>
+ <%= link_to user_post_path(@user.id, i.id), method: :delete, class: "" do %>
+                <div class=" badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</div>
+             <% end %> 
+<%
+=end%>
              <%= link_to user_post_path(@user.id, i),  class: "post-p" do %>
+
             
                 <div class="post-border post-p">
-                    <h3>Post #<%= i.title %> </h3>
+                    <div class="d-flex align-items-center">
+                        <h3>Post #<%= i.title %> </h3>
+                        <% if can? :distroy, @post %>
+                        <span class="m-3 badge bg-danger"><span class=""> <i class="fas fa-trash-alt"></i> </span>Delete</span>
+                        <% end %>
+                    </div>
                     <p> 
-                        lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem*ipsum dolor sit amet, consectetur adipisicing elit.
+                     <%= i.text%>
                     </p>
                     <div class="comment-num"><span class="m-2"> Comments: <%= i.comments.count%>,</span> 
                         <span class=""> <i class="<%= i.liked || i.likes.count == 0 ? "far fa-heart fa-2x" : "fas fa-heart fa-2x"%>"></i> </span>
@@ -30,13 +44,13 @@
             <% end %>
             <div class="post-border mt-2">
                 <% @post_comments.find{|e| e[:id] == i[:id]}[:comments].each do |comment|%>
-                    <div class="comment">
-                        <h5>Anderson lebon<%= comment.id %>:  
-                            <span> 
+                    <div class="comment d-flex my-2 justify-content-between w-100">
+                        <div>Anderson lebon<%= comment.id %> : 
+                                <span> 
                                 <%= comment.text %>
                             </span>
-                        </h5>
-                    </div>
+                        </div>            
+                 </div>
                 <% end %> 
             </div>
        </div>

@@ -66,4 +66,6 @@ gem 'font-awesome-sass'
 
 gem 'devise'
 
+gem 'cancancan'
+
 gem 'rails-controller-testing'

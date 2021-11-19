@@ -20,11 +20,23 @@ class CommentsController < ApplicationController
     @user = current_user
     @comment.user_id = params[:user_id]
     @comment.post_id = params[:post_id]
+
     if @comment.save
       redirect_to user_post_path(@comment.user, @comment.post)
+      # notifies the user that the comment was created
+      flash[:notice] = 'Comment created!'
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @user = current_user
+    @comment = @user.posts.find(params[:post_id]).comments.find(params[:id])
+    @comment.destroy
+    flash[:notice] = 'Comment deleted'
+
+    redirect_to user_post_path(@user, @comment.post)
   end
 
   # private
