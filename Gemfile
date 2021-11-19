@@ -50,13 +50,16 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'database_cleaner-active_record'
+  gem 'factory_girl_rails', :require => false
+
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'factory_girl_rails', :require => false
+
 
 end
 

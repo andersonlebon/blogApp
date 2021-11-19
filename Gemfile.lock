@@ -100,11 +100,11 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     execjs (2.8.1)
-    factory_bot (6.2.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
-      railties (>= 5.0.0)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
+      railties (>= 3.0.0)
     ffi (1.15.4)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -282,7 +282,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   database_cleaner-active_record
   devise
-  factory_bot_rails
+  factory_girl_rails
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)

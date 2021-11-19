@@ -1,5 +1,3 @@
-Viewed
-@@ -0,0 +1,27 @@
 FactoryBot.define do
   factory :post do
     user

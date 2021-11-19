@@ -4,14 +4,14 @@ RSpec.feature 'Logins', type: :feature do
   background { visit new_user_session_path }
 
   scenario 'Page has a login form' do
-    expect(page.has_field?('email')).to be true
-    expect(page.has_field?('password')).to be true
+    expect(page.has_field?('user_email')).to be true
+    expect(page.has_field?('user_password')).to be true
     expect(page.has_button?('Sign in')).to be true
   end
 
   context 'Submit' do
-    scenario 'without email and password' do
-      click_button 'Log in'
+    scenario 'without The email and password' do
+      click_button 'Sign in'
       expect(page).to have_content 'Invalid Email or password'
     end
 
@@ -20,7 +20,7 @@ RSpec.feature 'Logins', type: :feature do
         fill_in 'user_email', with: 'user@example.com'
         fill_in 'user_password', with: 'password'
       end
-      click_button 'Log in'
+      click_button 'Sign in'
       expect(page).to have_content 'Invalid Email or password'
     end
 
@@ -30,7 +30,7 @@ RSpec.feature 'Logins', type: :feature do
         fill_in 'user_email', with: other_user.email
         fill_in 'user_password', with: other_user.password
       end
-      click_button 'Log in'
+      click_button 'Sign in'
       expect(page).to have_content 'Signed in successfully'
     end
   end
