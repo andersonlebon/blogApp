@@ -1,42 +1,60 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
-RSpec.feature 'User post index page', type: :feature do
-  include Devise::Test::IntegrationHelpers
-  background do
-    @user = User.create(id: 1, name: 'anderson buyana', photo: nil, bio: nil, created_at: '2021-11-18 11:27:35.346590000 +0000', updated_at: '2021-11-19 08:23:07.825477000 +0000', posts_counter: nil, email: 'buyananderson@gmail.com', role: 'admin')
-    sign_in(@user)
-    visit new_user_session_path
+RSpec.feature 'Logins', type: :feature do
+  background { visit new_user_session_path }
+
+  scenario 'Page has a login form' do
+    expect(page.has_field?('user_email')).to be true
+    expect(page.has_field?('user_password')).to be true
+    expect(page.has_button?('Sign in')).to be true
   end
 
-  scenario 'I can see the username of all other users' do
+    scenario 'I can see the username of all other users' do
     # check username
-    expect(@user.name).to be == 'anderson buyana'
-  end
-
-  context 'I can see the profile picture for each user' do
-    scenario 'without The email and password' do
-      click_button 'Sign in'
-      expect(page).to have_content 'Invalid Email or password'
-    end
-
-    scenario 'I can see the number of posts each user has written' do
-      within 'form' do
-        fill_in 'user_email', with: 'user@example.com'
-        fill_in 'user_password', with: 'password'
+     @user = User.create(name: 'Anderson', email: 'user@example.com', password: 'password', confirmed_at: Time.now, )
+     within 'form' do
+        fill_in 'user_email', with: @user.email
+        fill_in 'user_password', with: @user.password
       end
       click_button 'Sign in'
-      expect(page).to have_content 'Invalid Email or password'
+    expect(page).to have_content 'Anderson'
     end
+
+
+    scenario 'I can see the profile picture for each user' do
+       @user = User.create(name: 'Anderson', photo: "http/url/picture", email: 'user@example.com', password: 'password', confirmed_at: Time.now, )
+       within 'form' do
+        fill_in 'user_email', with: @user.email
+        fill_in 'user_password', with: @user.password
+      end
+      click_button 'Sign in'
+      expect(page).to have_content 'http/url/picture'
+    end
+
+
+
+  scenario 'I can see the profile picture for each user' do
+       @user = User.create(name: 'Anderson', photo: "http/url/picture", email: 'user@example.com', password: 'password', confirmed_at: Time.now, )
+      #  create a user post
+      @post = @user.posts.create(title: 'post title', text: 'post body', user_id: @user.id)
+      @post.save
+       within 'form' do
+        fill_in 'user_email', with: @user.email
+        fill_in 'user_password', with: @user.password
+      end
+      click_button 'Sign in'
+      expect(page).to have_content "Number of poste: #{@user.posts.count}"
+    end
+
 
     scenario 'When I click on a user, I am redirected to that users show page' do
-      within 'form' do
-        fill_in 'user_email', with: ''
-        fill_in 'user_password', with: ''
+       @user = User.create(name: 'Anderson lebon', photo: "http/url/picture", email: 'user@example.com', password: 'password', confirmed_at: Time.now, )
+       within 'form' do
+        fill_in 'user_email', with: @user.email
+        fill_in 'user_password', with: @user.password
       end
       click_button 'Sign in'
-      expect(page).to have_content 'Invalid Email or password'
+      expect(page.has_link?('Anderson lebon')).to be true
     end
-  end
+
 end
