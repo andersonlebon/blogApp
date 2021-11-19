@@ -27,12 +27,13 @@ RSpec.feature 'Logins', type: :feature do
     end
 
     scenario 'with correct email and password' do
+       @user = User.create(name: 'Polina', email: 'user@example.com', password: 'password', confirmed_at: Time.now, )
       within 'form' do
-        fill_in 'user_email', with: ''
-        fill_in 'user_password', with: ''
+        fill_in 'user_email', with: @user.email
+        fill_in 'user_password', with: @user.password
       end
       click_button 'Sign in'
-      expect(page).to have_content 'Invalid Email or password'
+      expect(page).to have_content 'Signed in successfully.'
     end
   end
 end
