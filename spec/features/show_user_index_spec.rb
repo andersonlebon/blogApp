@@ -10,17 +10,18 @@ RSpec.feature 'User post index page', type: :feature do
     visit new_user_session_path
   end
 
-  scenario 'I can see the username' do
-    expect(page.has_button?('Sign in')).to be true
+  scenario 'I can see the username of all other users' do
+    # check username
+    expect(@user.name).to be == 'anderson buyana'
   end
 
-  context "I can see a post's title" do
+  context 'I can see the profile picture for each user' do
     scenario 'without The email and password' do
       click_button 'Sign in'
       expect(page).to have_content 'Invalid Email or password'
     end
 
-    scenario "I can see some of the post's body" do
+    scenario 'I can see the number of posts each user has written' do
       within 'form' do
         fill_in 'user_email', with: 'user@example.com'
         fill_in 'user_password', with: 'password'
@@ -29,7 +30,7 @@ RSpec.feature 'User post index page', type: :feature do
       expect(page).to have_content 'Invalid Email or password'
     end
 
-    scenario 'I can see how many likes a post has' do
+    scenario 'When I click on a user, I am redirected to that users show page' do
       within 'form' do
         fill_in 'user_email', with: ''
         fill_in 'user_password', with: ''
