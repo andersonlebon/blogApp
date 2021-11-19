@@ -49,22 +49,12 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
-<<<<<<< HEAD
-  gem 'database_cleaner-active_record'
-  gem 'factory_girl_rails'
-
-=======
->>>>>>> parent of d55d7a8... Add new gems
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
 group :development, :test do
   gem 'rspec-rails'
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of d55d7a8... Add new gems
 end
 
 

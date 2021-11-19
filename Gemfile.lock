@@ -96,14 +96,6 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     execjs (2.8.1)
-<<<<<<< HEAD
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
-=======
->>>>>>> parent of d55d7a8... Add new gems
     ffi (1.15.4)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -280,10 +272,6 @@ DEPENDENCIES
   cancancan
   capybara (>= 3.26)
   devise
-<<<<<<< HEAD
-  factory_girl_rails
-=======
->>>>>>> parent of d55d7a8... Add new gems
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
