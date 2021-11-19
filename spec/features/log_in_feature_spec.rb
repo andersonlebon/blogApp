@@ -24,14 +24,13 @@ RSpec.feature 'Logins', type: :feature do
       expect(page).to have_content 'Invalid Email or password'
     end
 
-    given(:other_user) { FactoryBot.create :user }
     scenario 'with correct email and password' do
       within 'form' do
-        fill_in 'user_email', with: other_user.email
-        fill_in 'user_password', with: other_user.password
+        fill_in 'user_email', with: ''
+        fill_in 'user_password', with: ''
       end
       click_button 'Sign in'
-      expect(page).to have_content 'Signed in successfully'
-    end
+      expect(page).to have_content 'Invalid Email or password'
+    end   
   end
 end
