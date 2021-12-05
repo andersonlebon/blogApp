@@ -14,6 +14,7 @@
 
 - Ruby on Rails
 - PostgreSQL
+- Bootstrap 
 
 ## Getting Started
 
