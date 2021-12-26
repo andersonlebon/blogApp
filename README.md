@@ -44,6 +44,7 @@ git clone git@github.com:andersonlebon/blogApp.git
 ```
 
 ```sh
+
  - rails db:setup
  and then run
 -  rails db:migrate
