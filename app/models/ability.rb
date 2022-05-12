@@ -14,7 +14,7 @@ class Ability
       can :create, Post
 
       can :destroy, Post do |post|
-        post.id == user.id
+        post.user_id == user.id
       end
 
       can :create, Comment
