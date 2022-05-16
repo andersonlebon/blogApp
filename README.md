@@ -1,6 +1,5 @@
 # Blog App
 
-![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
 > The Blog app will be a classic blog website,that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
