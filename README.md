@@ -5,7 +5,7 @@
 
 |  wireframes |  |
 |-------|---------|
-| ![localhost_3000_ (7)](https://user-images.githubusercontent.com/65068771/141308136-200aa3e2-9df4-47ef-93f6-51ff568f1220.png) | ![localhost_3000_users_1000](https://user-images.githubusercontent.com/65068771/141308226-ebc8b70f-9a28-4340-9345-84c0b7d93f2a.png) |
+| ![localhost_3000_users_1000](https://user-images.githubusercontent.com/65068771/141308226-ebc8b70f-9a28-4340-9345-84c0b7d93f2a.png) |
 | ![localhost_3000_users_1000_posts (1)](https://user-images.githubusercontent.com/65068771/141308300-fdf6624f-bd2a-4d37-8983-43061763b32d.png) | |
 ## Built With
 
